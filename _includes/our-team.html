@@ -18,7 +18,7 @@
      <div class='small-6 medium-3 large-3 columns'>
         <div class='mod modTeamMember style-2'>
           <div class='member'>
-            <img class="avatar" alt="" src="{{ site.baseurl}}/{%if person.avatar and person.avatar != "" %}{{person.avatar}}{% else %}images/APSci_place-holder.jpg{%endif%}" />
+            <img class="avatar" alt="" src="{{site.url}}{{ site.baseurl}}{{ site.data.images.directory}}{%if person.avatar and person.avatar != "" %}{{person.avatar}}{% else %}images/APSci_place-holder.jpg{%endif%}" />
             <div class='overlay'>
               <ul class='socials'>
                 {% for social in person.socials %}
