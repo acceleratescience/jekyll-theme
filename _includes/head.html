@@ -19,7 +19,7 @@
             var $page = $('body');
             var config = {
               dependencyPath: {
-                plugin: 'javascripts/'
+                plugin: 'assets/js/'
               }
             }
             var application = new Tc.Application($page, config);
@@ -31,9 +31,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com"> 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,300" media="screen" rel="stylesheet" type="text/css" />
-  <script src="{{ "/javascripts/masonry.pkgd.js" | prepend: site.baseurl | prepend: site.url }}" type="text/javascript"></script>
-  <script src="{{ "/javascripts/imagesloaded.pkgd.min.js" | prepend: site.baseurl | prepend: site.url }}" type="text/javascript"></script>
-  <script src="{{ "/javascripts/slick.min.js" | prepend: site.baseurl | prepend: site.url }}" type="text/javascript"></script>
+  <script src="{{ "/assets/js/masonry.pkgd.js" | relative_url }}" type="text/javascript"></script>
+  <script src="{{ "/assets/js/imagesloaded.pkgd.min.js" | relative_url }}" type="text/javascript"></script>
+  <script src="{{ "/assets/js/slick.min.js" | relative_url }}" type="text/javascript"></script>
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
