@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html>
 
-  {%- include head.html -%}
+  {% include head.html %}
 
   <body>
 
-    {%- include header.html -%}
+    {% include header.html %}
 
-    <main class="page-content" aria-label="Content">
-      {%- if site.style == 'aistats' -%}
-      <div class="leftmenu">
-	{% include aistats/nav-bar.html %}
-      </div>
-      {%- endif -%}
-      
-      <div class="wrapper">
-	{%- include edit_link.html -%}
-        {{ content }}
-      </div>
-    </main>
-    {%- include footer.html -%}
+    <div id='main' role='main'>
+      {{ content }}
+    </div>
+
+    {% include footer.html %}
 
   </body>
 
