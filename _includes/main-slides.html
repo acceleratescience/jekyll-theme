@@ -7,7 +7,7 @@
       <span></span>
     </a>
     <ul class='sequence-pagination'>
-      {% for slide in site.data.slides %}
+      {% for item in site.data.slides.items %}
         {% if forloop.index == 1 %}
           <li class='current'></li>
         {% else %}
@@ -16,7 +16,7 @@
       {% endfor %}
     </ul>
     <ul class='sequence-canvas'>
-      {% for slide in site.data.slides %}
+      {% for item in site.data.slides.items %}
         {% if forloop.index == 1 %}
           {% assign class = "static" %}
         {% else %}
@@ -24,9 +24,9 @@
         {% endif %}
 
         <li class='frame {{class}}'>
-          <div class='bg' style='background-image: url({{site.url}}{{site.baseurl}}{{site.data.images.directory}}{{slide.bg}});'></div>
-          {% if slide.infos %}
-            {% for info in slide.infos %}
+          <div class='bg' style='background-image: url({{site.url}}{{site.baseurl}}{{site.data.images.directory}}{{item.bg}});'></div>
+          {% if item.infos %}
+            {% for info in item.infos %}
               <div class='info{{forloop.index}} {{info.animation}}'>
                 <div class='row'>
                   <div class='medium-10 large-8 columns'>
@@ -37,25 +37,25 @@
               </div>
             {% endfor %}
           {% else %}
-            <div class='title {{slide.animation}}' style='color: rgb(255, 255, 255);'>
+            <div class='title {{item.animation}}' style='color: rgb(255, 255, 255);'>
               <div class='row'>
-                <div class='{{slide.class}} columns'>
-		  <h2>{%-if slide.invert-%}<span style='background-color:{{ slide.color }}; padding-left:10px; padding-right:10px; color:white; text-transform:capitalize;'>
-		      {%-else-%}<span style='background-color:white; padding-left:10px; padding-right:10px; color:{{ slide.color }}; text-transform:capitalize;'>
+                <div class='{{item.class}} columns'>
+		  <h2>{%-if item.invert-%}<span style='background-color:{{ item.color }}; padding-left:10px; padding-right:10px; color:white; text-transform:capitalize;'>
+		      {%-else-%}<span style='background-color:white; padding-left:10px; padding-right:10px; color:{{ item.color }}; text-transform:capitalize;'>
 			{%-endif-%}
-		      {{slide.title}}</span><br/>{%-if slide.invert-%}<span style='color:{{ slide.color }};text-transform:lowercase;'>{%-else-%}
+		      {{item.title}}</span><br/>{%-if item.invert-%}<span style='color:{{ item.color }};text-transform:lowercase;'>{%-else-%}
 			<span style='text-transform:lowercase;'>{%-endif-%}
-                  {{slide.info}}</span></h2>
+                  {{item.info}}</span></h2>
                 </div>
               </div>
             </div>
           {% endif %}
-          <div class='buttons-wrapper {{slide.buttons.animation}}' style=''>
+          <div class='buttons-wrapper {{item.buttons.animation}}' style=''>
             <div class='row'>
-              <div class='{{slide.buttons.class}} columns'>
+              <div class='{{item.buttons.class}} columns'>
                 <!--<div class='two spacing'></div>-->
-                {% for item in slide.buttons.items %}
-                  <a target="_blank" class='button {{item.class}}' href='{{item.url}}'>{{item.text}}</a>
+                {% for item_a in item.buttons.items %}
+                  <a target="_blank" class='button {{item_a.class}}' href='{{item_a.url}}'>{{item.text}}</a>
                 {% endfor %}
               </div>
             </div>

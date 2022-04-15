@@ -31,13 +31,13 @@ layout: default
     <div class='large-12 columns'>
       <div class='mod'>
         <div class='boxes flex between'>
-          {% for box in site.data.boxes %}
-            <div class='box'>
-              <!--<i class='{{box.icon_class}}'></i>-->
-              <img style='max-width:50px; display:block; margin:0 auto; margin-bottom:25px;' src='{{site.url}}{{site.baseurl}}/assets/images/{{box.image}}'/>
-              <h4>{{box.title}}</h4>
-              <p>{{box.text}}</p>
-              <a class="button small" href="{{site.url}}{{site.baseurl}}/{{box.link}}">{{box.link_text}}</a>
+          {% for item in site.data.boxes.items %}
+            <div class='item'>
+              <!--<i class='{{item.icon_class}}'></i>-->
+              <img style='max-width:50px; display:block; margin:0 auto; margin-bottom:25px;' src='{{site.url}}{{site.baseurl}}/assets/images/{{item.image}}'/>
+              <h4>{{item.title}}</h4>
+              <p>{{item.text}}</p>
+              <a class="button small" href="{{site.url}}{{site.baseurl}}/{{item.link}}">{{item.link_text}}</a>
             </div>
           {% endfor %}
         </div>
@@ -63,11 +63,11 @@ layout: default
             <div class='two spacing'></div>
             <div class='small-12 columns'>
               <div class='items centered-text'>
-                {% for t in site.data.latest_news  %}
+                {% for item in site.data.latest_news.items  %}
                   <div class='item'>
-                    <p class='author'>{{t.text}}</p>
-                    <p class='quote'>{{t.title}}, {{t.date}}</p>
-                    <a class="button small" href="{{site.baseurl}}/{{t.link}}">{{t.link_text}}</a>
+                    <p class='author'>{{item.text}}</p>
+                    <p class='quote'>{{item.title}}, {{item.date}}</p>
+                    <a class="button small" href="{{site.baseurl}}/{{item.link}}">{{item.link_text}}</a>
                     <div class='two spacing'></div>
                   </div>
                 {% endfor %}
@@ -127,7 +127,7 @@ layout: default
 
 <!--<div class='full parallax' style='background: #f5f5f5'>
   <div class='row'>
-    {% for milestone in site.data.milestones %}
+    {% for milestone in site.data.milestones.items %}
       <div class='medium-3 large-3 columns right-border left-border'>
         <div class='mod modMilestone no-icon'>
           <strong data-from='{{milestone.from}}' data-to='{{milestone.to}}'>&nbsp;</strong>
