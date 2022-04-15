@@ -1,0 +1,44 @@
+<div class='full'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <h3>Our team</h3>
+      <div class='spacing'></div>
+    </div>
+  </div>
+  <div class='row'>
+    {% assign people = site.people | sort: 'family' | sort: 'priority' | reverse %}
+    {% assign count = 0 %}
+    {% for person in people %}{% if person.team %}{% include extractname.html entry=person %}
+      {% assign count = count | plus: 1 %}
+      {% if count > 4 %}<!-- add in row here --> 
+      {% assign count = 1 %}
+  </div>
+  <div class='row'>
+      {% endif %}
+     <div class='small-6 medium-3 large-3 columns'>
+        <div class='mod modTeamMember style-2'>
+          <div class='member'>
+            <img class="avatar" alt="" src="{{ site.baseurl}}/{%if person.avatar and person.avatar != "" %}{{person.avatar}}{% else %}images/APSci_place-holder.jpg{%endif%}" />
+            <div class='overlay'>
+              <ul class='socials'>
+                {% for social in person.socials %}
+                  <li>
+                    <a target='_blank' href='{{social.url}}'>
+                      <i class='{{social.icon_class}}'></i>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <h3>{{name}}</h3>{% if person.position %}
+          <p class='position'>{{person.position}}{% if person.department %}
+          <br>{{person.department}}{%endif%}</p>{%endif%}{%if person.desc%}
+          <p>{{person.desc}}</p>{%endif%}
+          <div class='two spacing'></div>
+        </div>
+      </div>
+   {% endif %}{% endfor %}
+  </div>
+  <div class='three spacing'></div>
+</div>
