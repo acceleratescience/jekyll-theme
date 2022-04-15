@@ -1,0 +1,19 @@
+<div class='full' style='background: #f5f5f5'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <div class='mod'>
+        <div>
+          {% for work in site.data.publications %}
+            <div class='box' style='background: #f9f9f9;'>
+              <h4>{{work.title}}</h4>
+              <p>{{work.authors}}</p>
+              <p>{{work.desc}}</p>
+              <a class='button small' href='{{work.link_to}}'>Read more</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='four spacing'></div>
+</div>
