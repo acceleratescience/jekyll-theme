@@ -6,7 +6,7 @@
           {% for article in site.news %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{article.title}}</h4>
-              <p><b>{{article.date | date: "%a, %b %d, %y" }}</b></p>
+              <p><b>{{article.date | date: "%A, %B %d, %Y" }}</b></p>
               <p>{{article.authors}}</p>
               <p>{{article.desc}}</p>
               <a href='{{article.link}}'>{{article.linkText}}</a>
