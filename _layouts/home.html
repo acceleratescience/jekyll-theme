@@ -1,59 +1,162 @@
 ---
-layout: page
+layout: default
 ---
 
-<section class="block block__hero block__hero--large">
-  <div class="container">
-    {% include top-row-logo-and-menu.html %}
-    {% include second-row-nav.html %}
-    {% include third-row-index.html %}
-    <h1 class="hero__title">{{ site.data.homepage.hero.title }}</h1>
-  </div>
-  {% include animation-particles.html %}
-</section>
-<section class="block block__media-text block__media-text--padded">
-  <div class="container">
-    <div class="media-text__text">
-      <div class="section-heading">
-        <h2>{{ site.data.homepage.about.title }}</h2>
-        <span></span>
-      </div>
-      <h3>{{ site.data.homepage.about.heading }}</h3>
-      <p>{{ site.data.homepage.about.content }}</p>
-      <a class="button" href="{{ site.data.homepage.about.link_url }}">
-        {{ site.data.homepage.about.link_label }}
-        <span class="dot dot--top-left"></span>
-        <span class="dot dot--top-right"></span>
-        <span class="dot dot--bottom-left"></span>
-        <span class="dot dot--bottom-right"></span>
-      </a>
-    </div>
-    <div class="media-text__media">
-      <img src="{{ site.data.homepage.about.image }}">
+<style>
+  .box{background-color:white; padding:25px; width:30%; text-align:center; display:flex; flex-direction:column; justify-content: space-between;}
+
+@media only screen and (max-width: 680px) {
+  .box{width:100%; margin-bottom:25px;}
+}
+
+</style>
+
+{% include main-slides.html %}
+
+<div class='full' style='background: #f5f5f5; padding-top:35px;'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <!--<h4 style='font-size:20px; color: #353535'>Accelerate Science</h4>
+      <h2 style='color:#1B56EA'>Advancing the application of AI for scientific discovery</h2>-->
+      <div class='spacing'></div>
+      <p style='font-size:20px; color: #353535'>
+        The Accelerate Programme for Scientific Discovery is an interdisciplinary research team using machine learning to advance the frontiers of science. Based in Cambridge University’s Department for Computer Science and Technology, Accelerate Science’s work includes:
+      </p>
     </div>
   </div>
-</section>
-<section class="block block__media-text block__media-text--bg-white">
-    <div class="container">
-        <div class="media-text__text">
-            <div class="section-heading">
-                <h2>{{ site.data.homepage.research.title }}</h2>
-                <span></span>
+  <!--<div class='spacing'></div>-->
+</div>
+<div class='full' style='background: #f5f5f5'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <div class='mod'>
+        <div class='boxes flex between'>
+          {% for box in site.data.boxes %}
+            <div class='box'>
+              <!--<i class='{{box.icon_class}}'></i>-->
+              <img style='max-width:50px; display:block; margin:0 auto; margin-bottom:25px;' src='{{site.url}}{{site.baseurl}}/assets/images/{{box.image}}'/>
+              <h4>{{box.title}}</h4>
+              <p>{{box.text}}</p>
+              <a class="button small" href="{{site.url}}{{site.baseurl}}/{{box.link}}">{{box.link_text}}</a>
             </div>
-            <h3>{{ site.data.homepage.research.heading }}</h3>
-            <p>{{ site.data.homepage.research.content }}</p>
-            <a class="button" href="{{ site.data.homepage.research.link_url }}">
-                {{ site.data.homepage.research.link_label }}
-                <span class="dot dot--top-left"></span>
-                <span class="dot dot--top-right"></span>
-                <span class="dot dot--bottom-left"></span>
-                <span class="dot dot--bottom-right"></span>
-            </a>
+          {% endfor %}
         </div>
-        <div class="media-text__media">
-            <img src="{{ site.data.homepage.research.image }}">
-        </div>
+      </div>
     </div>
-</section>
-{% include listpartners.html %}
-{% include block_latest-news-events.html %}
+  </div>
+  <div class='four spacing'></div>
+</div>
+
+
+
+
+<div class='full'>
+  <div class='row'>
+    <div class='medium-6 columns'>
+      <a class="twitter-timeline" data-height="340" data-link-color="#FAB81E" href="https://twitter.com/AccelerateSci?ref_src=twsrc%5Etfw">Tweets by AccelerateSci</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    
+    <div class='row'>
+      <div class='medium-6 columns'>
+        <div class='mod modTestimonials'>
+          <div class='row'>
+            <div class='two spacing'></div>
+            <div class='small-12 columns'>
+              <div class='items centered-text'>
+                {% for t in site.data.latest_news  %}
+                  <div class='item'>
+                    <p class='author'>{{t.text}}</p>
+                    <p class='quote'>{{t.title}}, {{t.date}}</p>
+                    <a class="button small" href="{{site.baseurl}}/{{t.link}}">{{t.link_text}}</a>
+                    <div class='two spacing'></div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class='spacing'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--<div class='medium-6 columns'>
+      <div class='spacing'></div>
+      <h4 style='color: #999'>Follow Us Across</h4>
+      <h2>Our Social Channels</h2>
+      <div class='spacing'></div>
+      <p>This is the text about your Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing.</p>
+      <div class='spacing'></div>
+      <a class='button small' href='#'>Learn more</a>
+    </div>-->
+  </div>
+  <div class='four spacing'></div>
+  <!--<div class='row'>
+    <div class='medium-6 columns'>
+      <div class='two spacing'></div>
+      <h4 style='color: #999'>Simple</h4>
+      <h2>Easy to use</h2>
+      <div class='spacing'></div>
+      <ul class='shortcode-list'>
+        <li>
+          <i class='fa fa-check'></i>
+          This is a check list item, htis is a check list item
+        </li>
+        <li>
+          <i class='fa fa-check'></i>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit ipsum
+        </li>
+        <li>
+          <i class='fa fa-check'></i>
+          Sed diam nonummy nibh euismod tincidunt ut, lorem ipsum dolor sit amet
+        </li>
+        <li>
+          <i class='fa fa-check'></i>
+          Dolore magna aliquam erat volutpat consectetu amet magna adipiscing
+        </li>
+      </ul>
+      <div class='spacing'></div>
+      <a class='button small' href='#'>Learn more</a>
+    </div>
+    <div class='medium-6 columns'>
+      <img class="fadeinright" width="500" height="400" alt="" src="images/@stock/circle-1.png" />
+    </div>
+  </div>
+  <div class='four spacing'></div>-->
+</div>
+
+
+<!--<div class='full parallax' style='background: #f5f5f5'>
+  <div class='row'>
+    {% for milestone in site.data.milestones %}
+      <div class='medium-3 large-3 columns right-border left-border'>
+        <div class='mod modMilestone no-icon'>
+          <strong data-from='{{milestone.from}}' data-to='{{milestone.to}}'>&nbsp;</strong>
+          <span>{{milestone.title}}</span>
+          <div class='spacing'></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class='four spacing'></div>
+</div>-->
+<!--<div class='full no-padding' style='background: rgb(27, 86, 234); color: #fff'>
+  <div class='two spacing'></div>
+  <div class='mod modCallToAction'>
+    <div class='row'>
+      <div class='medium-9 large-9 columns'>
+        <p>Reprehenderit eos et non et ut eum reprehenderit quis sequi quia vel repellendus id..</p>
+      </div>
+      <div class='medium-3 large-3 columns'>
+        <a class='boxed button' href='/'>Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class='spacing'></div>
+</div>-->
+
+
+ 
+</div>
+
+
+
