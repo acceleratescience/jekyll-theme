@@ -24,7 +24,7 @@
         {% endif %}
 
         <li class='frame {{class}}'>
-          <div class='bg' style='background-image: url({{site.url}}{{site.baseurl}}{{site.data.images.directory}}{{item.image}});'></div>
+          <div class='bg' style='background-image: url({{site.url}}/{{site.baseurl}}{{site.data.images.directory}}{{item.image}});'></div>
           {% if item.infos %}
             {% for info in item.infos %}
               <div class='info{{forloop.index}} {{info.animation}}'>
