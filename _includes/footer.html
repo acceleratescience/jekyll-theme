@@ -16,11 +16,17 @@
       <div class='links'>
         <h4>Our work</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="latest.html">Announcements and updates</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="get-involved.html">Contact us</a></li>
-          <li><a href="https://mlatcl.github.io">More about ML@CL</a></li>
+	  {% for item in site.data.nav.footer_nav %}
+          <li>
+            <a href="{{ item.link }}">{{ item.label }}</a>
+            {% if item.submenu_item != nil %}
+            <div class="submenu">
+              {% for item in item.submenu_item. %}
+              <a href="{{ item.link }}">{{ item.label }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </li>
         </ul>
       </div>
       <div class='spacing'></div>
@@ -41,12 +47,10 @@
       <div class='spacing'></div>
       <h4>Contact us</h4>
       <ul>
-        <li>accelerate-science@cst.cam.ac.uk</li>
-        <li>Department of Computer Science and Technology<br/>
-          William Gates Building<br/>
-          15 J J Thomson Avenue<br/>
-          Cambridge<br/>
-          CB3 0FD</li>
+        <li><a href="mailto:{{ site.data.site.contact_details.email }}">
+                            {{ site.data.site.contact_details.email }}
+                        </a>accelerate-science@cst.cam.ac.uk</li>
+        <li>{{ site.data.site.contact_details.address | markdownify }}</li>
       </ul>
       <div class='spacing'></div>
       <ul class='socials'>
@@ -56,12 +60,12 @@
           </a>
         </li>-->
         <li>
-          <a href='http://twitter.com/AccelerateSci'>
+          <a href='{{ site.data.site.social_details.twitter_link }}'>
             <i class='fa fa-twitter'></i>
           </a>
         </li>
         <li>
-          <a href='http://youtube.com/ProfNeilLawrence'>
+          <a href='{{ site.data.site.social_details.youtube_link }}'>
             <i class='fa fa-youtube'></i>
           </a>
         </li>

@@ -24,7 +24,7 @@
         {% endif %}
 
         <li class='frame {{class}}'>
-          <div class='bg' style='background-image: url({{site.url}}{{site.baseurl}}{{site.data.images.directory}}{{item.bg}});'></div>
+          <div class='bg' style='background-image: url({{site.url}}{{site.baseurl}}{{site.data.images.directory}}{{item.image}});'></div>
           {% if item.infos %}
             {% for info in item.infos %}
               <div class='info{{forloop.index}} {{info.animation}}'>
@@ -55,7 +55,7 @@
               <div class='{{item.buttons.class}} columns'>
                 <!--<div class='two spacing'></div>-->
                 {% for item_a in item.buttons.items %}
-                  <a target="_blank" class='button {{item_a.class}}' href='{{item_a.url}}'>{{item.text}}</a>
+                  <a target="_blank" class='button {{item_a.class}}' href='{{item_a.link}}'>{{item_a.link_text}}</a>
                 {% endfor %}
               </div>
             </div>

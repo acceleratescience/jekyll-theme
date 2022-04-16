@@ -43,11 +43,11 @@ layout: default
       <div class='spacing'></div>
       <div class='mod'>
         <div>
-          {% for item in site.resources %}{% if item.teaching %}
+          {% for item in site.resources %}{% if item.category=="Teaching" %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{item.title}}</h4>
-              <p>{{item.desc}}</p>
-              <a href='{{item.link_to}}'>{{item.link_text}}</a>
+              <p>{{item.excerpt}}</p>
+              <a href='{{item.link}}'>{{item.label}}</a>
             </div>
           {% endif %}{% endfor %}
         </div>
@@ -63,11 +63,11 @@ layout: default
       <div class='spacing'></div>
       <div class='mod'>
         <div>
-          {% for item in site.resources %}{% if item.software %}
+          {% for item in site.resources %}{% if item.category=="Software" %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{item.title}}</h4>
-              <p>{{item.desc}}</p>
-              <a href='{{item.link_to}}'>{{item.link_text}}</a>
+              <p>{{item.excerpt}}</p>
+              <a href='{{item.link}}'>{{item.label}}</a>
             </div>
           {% endif %}{% endfor %}
         </div>
@@ -83,11 +83,11 @@ layout: default
       <div class='spacing'></div>
       <div class='mod'>
         <div>
-          {% for item in site.resources %}{% if item.additional %}
+          {% for item in site.resources %}{% if item.category=="Additional" %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{item.title}}</h4>
-              <p>{{item.desc}}</p>
-              <a href='{{item.link_to}}'>{{item.link_text}}</a>
+              <p>{{item.excerpt}}</p>
+              <a href='{{item.link}}'>{{item.label}}</a>
             </div>
           {% endif %}{% endfor %}
         </div>
