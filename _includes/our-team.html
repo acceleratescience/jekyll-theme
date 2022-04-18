@@ -7,8 +7,11 @@
   </div>
   <div class='row'>
     {% assign people = site.people | sort: 'family' | sort: 'priority' | reverse %}
+    {% for person_slug in site.data.team.members %}
     {% assign count = 0 %}
-    {% for person in people %}{% if person.team %}{% include extractname.html entry=person %}
+    {% for person in people %}
+    {% if item.slug == person_slug %}
+    {% if person.team %}{% include extractname.html entry=person %}
       {% assign count = count | plus: 1 %}
       {% if count > 4 %}<!-- add in row here --> 
       {% assign count = 1 %}
@@ -18,7 +21,7 @@
      <div class='small-6 medium-3 large-3 columns'>
         <div class='mod modTeamMember style-2'>
           <div class='member'>
-            <img class="avatar" alt="" src="{{site.url}}/{{ site.baseurl}}/{{ site.data.images.directory}}{%if person.image and person.image != "" %}{{person.image}}{% else %}APSci_place-holder.jpg{%endif%}" />
+            <img class="avatar" alt="" src="{{ site.data.images.directory | relative_url }}/{%if person.image and person.image != "" %}{{person.image}}{% else %}APSci_place-holder.jpg{%endif%}" />
             <div class='overlay'>
               <ul class='socials'>
                 {% if person.website %}
