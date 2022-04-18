@@ -7,7 +7,7 @@
       <span></span>
     </a>
     <ul class='sequence-pagination'>
-      {% for item in site.data.slides.items %}
+      {% for item in site.data.homepage.slides %}
         {% if forloop.index == 1 %}
           <li class='current'></li>
         {% else %}
@@ -16,7 +16,7 @@
       {% endfor %}
     </ul>
     <ul class='sequence-canvas'>
-      {% for item in site.data.slides.items %}
+      {% for item in site.data.homepage.slides %}
         {% if forloop.index == 1 %}
           {% assign class = "static" %}
         {% else %}
@@ -24,7 +24,7 @@
         {% endif %}
 
         <li class='frame {{class}}'>
-          <div class='bg' style='background-image: url({{site.url}}/{{site.baseurl}}{{site.data.images.directory}}{{item.image}});'></div>
+          <div class='bg' style='background-image: url({{site.data.images.directory | relative_url }}/{{item.featured_image}});'></div>
           {% if item.infos %}
             {% for info in item.infos %}
               <div class='info{{forloop.index}} {{info.animation}}'>
@@ -55,7 +55,7 @@
               <div class='{{item.buttons.class}} columns'>
                 <!--<div class='two spacing'></div>-->
                 {% for item_a in item.buttons.items %}
-                  <a target="_blank" class='button {{item_a.class}}' href='{{item_a.link}}'>{{item_a.link_text}}</a>
+                  <a target="_blank" class='button {{item_a.class}}' href='{{item_a.link}}'>{{item_a.label}}</a>
                 {% endfor %}
               </div>
             </div>
