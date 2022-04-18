@@ -6,7 +6,7 @@
           {% for paper in site.publications %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{paper.title}}</h4>
-	      {%-include extractinfo_publication.html entry=include.entry-%}
+	      {%-include extractinfo_publication.html entry=paper-%}
               <p>{%-for person in authors-%}
 		{%-include listperson.html seperator=', '-%}
 		{%-endfor-%}{% if journal %} <i>{{ journal }}</i>, {%elsif container-title %} <i>{{ container-title }}</i>,{% endif %}{%if publisher %} {{ publisher }}{% endif %}{% if volume %} {{ volume }}{% endif %}{% if number %} ({{number}}){%endif%}:{% if firstpage %}{{ firstpage }}{% endif %}{% if lastpage %}-{{ lastpage }}{% endif %}{% if year %}, {{ year }}{% endif %}</p>
