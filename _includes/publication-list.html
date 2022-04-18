@@ -3,12 +3,15 @@
     <div class='large-12 columns'>
       <div class='mod'>
         <div>
-          {% for work in site.data.publications %}
+          {% for paper in site.publications %}
             <div class='box' style='background: #f9f9f9;'>
-              <h4>{{work.title}}</h4>
-              <p>{{work.authors}}</p>
-              <p>{{work.desc}}</p>
-              <a class='button small' href='{{work.link_to}}'>Read more</a>
+              <h4>{{paper.title}}</h4>
+	      {%-include extractinfo_publication.html entry=include.entry-%}
+              <p>{%-for person in authors-%}
+		{%-include listperson.html seperator=', '-%}
+		{%-endfor-%}</p>
+              <p>{{paper.description}}</p>
+              <a class='button small' href='{{paper.url}}'>Read more</a>
             </div>
           {% endfor %}
         </div>
