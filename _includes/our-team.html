@@ -7,7 +7,7 @@
   </div>
   <div class='row'>
     {% assign count = 0 %}
-    {% for person_slug in site.data.team.members %}
+    {% for person_slug in site.data.teams.members %}
     {% for person in site.people %}
     {% if person.slug == person_slug %}
       {% include extractname.html entry=person %}
