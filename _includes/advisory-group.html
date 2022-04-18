@@ -8,8 +8,10 @@
   </div>
   <div class='row'>
     {% assign count = 0 %}
-    {% assign people = site.people | sort: 'family' %}
-    {% for person in people %}{% if person.advisory %}{% include extractname.html entry=person %}
+    {% for person_slug in site.data.team.advisory_group %}
+    {% for person in site.people %}
+    {% if person.slug == person_slug %}
+      {% include extractname.html entry=person %}
       {% assign count = count | plus: 1 %}
       {% if count > 4 %}<!-- add in row here --> 
       {% assign count = 1 %}
@@ -19,7 +21,7 @@
     <div class='small-6 medium-3 large-3 columns'>
         <div class='mod modTeamMember style-2'>
           <div class='member'>
-            <img class="avatar" alt="" src="{{site.url}}{{site.baseurl}}{{site.data.images.directory}}/{{person.avatar}}" />
+            <img class="avatar" alt="" src="{{site.data.images.directory | relative_url}}/{{person.image}}" />
           </div>
           <h3>{{name}}</h3>{% if person.position %}
           <p class='position'>{{person.position}}{% if person.department %}
@@ -28,7 +30,7 @@
           <div class='two spacing'></div>
         </div>
       </div>
-    {% endif %}{% endfor %}
+    {% endif %}{% endfor %}{% endfor %}
   </div>
   <div class='three spacing'></div>
 </div>
