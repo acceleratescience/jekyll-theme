@@ -1,45 +1,17 @@
-<a href="" id="top"></a>
-<div class='contain-to-grid sticky'>
-  <nav class='top-bar' data-options='sticky_on: large' data-topbar=''>
-    <ul class='title-area'>
-      <li class='name'>
-        <h1>
-          <a href="{{site.url}}/{{site.baseurl}}/index.html">
-            <img style='max-width:230px; padding-bottom:10px; padding-top:6px' alt="" src="{{site.url}}/{{site.baseurl}}/{{site.data.images.directory}}/{{ site.data.site.logo }}" />
-          </a>
-        </h1>
-      </li>
-      <li class='toggle-topbar menu-icon'>
-        <a href='#'>Menu</a>
-      </li>
-    </ul>
-    <section class='top-bar-section'>
-      <ul class="right">
-        {% for item in site.data.nav.main_nav %}
-          {% if item.section_id == page.section_id %}
-            {% assign active_class = "active" %}
-          {% else %}
-            {% assign active_class = "" %}
-          {% endif %}
-
-          {% if item.children %}
-            <li class="has-dropdown {{active_class}}">
-              <a href="{{site.url}}/{{site.baseurl}}/{{ item.link }}">{{ item.label }}</a>
-              <ul class='dropdown'>
-                {% for child in item.submenu_item %}
-                  <li>
-                    <a href="{{site.url}}/{{site.baseurl}}/{{ child.link }}">{{ child.label }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% else %}
-            <li class="{{active_class}}">
-              <a href="{{site.url}}/{{site.baseurl}}/{{ item.link }}">{{ item.label }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </section>
-  </nav>
-</div>
+<header role="banner">
+  <div class="nav-topbar-upper">
+    <div class="container">
+      <div class="row row--justified row--middle">
+        <a class="university-of-cambridge" href="{{ site.data.nav.top_bar.link }}" target="_blank" rel="noreferrer">
+          <img src="{{ site.data.nav.top_bar.image }}" alt="University of Cambridge">
+        </a>
+        <a class="cambridge-uni-quicklinks-footer" href="#cambridge-uni-quicklinks-footer">Cambridge quick links</a>
+        <div class="cambridge-uni-quicklinks">
+          {% for item in site.data.nav.top_bar.top_bar_nav %}
+          <a href="{{ item.link }}" target="_blank" rel="noreferrer">{{ item.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
