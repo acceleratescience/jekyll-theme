@@ -6,10 +6,9 @@
     </div>
   </div>
   <div class='row'>
-    {% assign people = site.people | sort: 'family' | sort: 'priority' | reverse %}
     {% for person_slug in site.data.team.members %}
     {% assign count = 0 %}
-    {% for person in people %}
+    {% for person in site.people %}
     {% if person.slug == person_slug %}
     {% if person.team %}{% include extractname.html entry=person %}
       {% assign count = count | plus: 1 %}
