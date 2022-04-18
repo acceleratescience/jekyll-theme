@@ -4,8 +4,8 @@
     <ul class='title-area'>
       <li class='name'>
         <h1>
-          <a href="{{site.url}}/{{site.baseurl}}/index.html">
-            <img style='max-width:230px; padding-bottom:10px; padding-top:6px' alt="" src="{{site.url}}/{{site.baseurl}}/{{site.data.images.directory}}/{{ site.data.site.logo }}" />
+          <a href='{{ "index.html" | absolute_url }}'>
+            <img style='max-width:230px; padding-bottom:10px; padding-top:6px' alt="" src="{{site.data.images.directory | absolute_url }}/{{ site.data.site.logo }}" />
           </a>
         </h1>
       </li>
