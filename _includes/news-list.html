@@ -3,7 +3,8 @@
     <div class='large-12 columns'>
       <div class='mod'>
         <div>
-          {% for article in site.news %}
+	  {% assign news_items = site.news | sort: 'date' | reverse %}
+          {% for article in news_items %}
             <div class='box' style='background: #f9f9f9;'>
               <h4>{{article.title}}</h4>
               <p><b>{{article.date | date: "%A, %B %d, %Y" }}</b></p>
